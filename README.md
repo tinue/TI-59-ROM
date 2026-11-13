@@ -68,6 +68,39 @@ lists them.
 | `TMC0555.txt` | TMC0555NL ASP8009 | RPN Simulator -13- | June 2023 |
 | `TMC0553.txt` | TMC0553NL ASP8040 | Structural Engineering Rev. A | September 2023 |
 
+## Module files ([`modules/`](modules))
+
+One file per Solid State Software module, `modules/<ID>.rom.yaml`, in the
+Calc-U Solid State ROM module format (`format: solid-state-rom-module`,
+`format-version: 1`). Each file holds the module's name and description, its
+ROM bytes and the pre-printed cue card of each library program. The emulator
+reads these files; the dumps above stay as the source.
+
+They were made once from the dumps in `dumps/modules/` (the bytes are
+identical) and from the cue cards of Calc-U-59 2.3.0
+(`roms/solid-state/cuecards.txt`). A library program that had no cue card
+there gets a stand-in card: the module's description as its title and its
+ID as its `id`. Only ML and LE have pre-printed cue cards so far. The title
+printed in the dump of RE and SE differs from the module's `title`, and is
+kept in `notes`.
+
+| File | Chip | Module |
+|---|---|---|
+| `ML.rom.yaml` | TMC0541 | Master Library |
+| `ST.rom.yaml` | TMC0542 | Applied Statistics |
+| `RE.rom.yaml` | TMC0543 | Investment |
+| `SY.rom.yaml` | TMC0544 | Surveying |
+| `NG.rom.yaml` | TMC0545 | Marine Navigation |
+| `AV.rom.yaml` | TMC0546 | Aviation |
+| `LE.rom.yaml` | TMC0547 | Leisure Library |
+| `SA.rom.yaml` | TMC0548 | Securities Analysis |
+| `BD.rom.yaml` | TMC0549 | Business Decisions |
+| `MU.rom.yaml` | TMC0550 | Math/Utilities |
+| `EE.rom.yaml` | TMC0551 | EE Library |
+| `SE.rom.yaml` | TMC0553 | Structural Engineering |
+| `AG.rom.yaml` | TMC0554 | Agriculture |
+| `RP.rom.yaml` | TMC0555 | RPN Simulator |
+
 ## Disassemblies ([`disasm/`](disasm))
 
 Annotated disassemblies of both calculator ROMs and narrative guides to how
@@ -114,9 +147,24 @@ c30fe59d97f268f50756c15d223ef6a9  dumps/modules/TMC0549.txt
 080546debf5326fe83eb4334923570e1  dumps/modules/TMC0553.txt
 40832575c1464fbf23e3893495b165a4  dumps/modules/TMC0554.txt
 86c670fb71d51d36c58f6846b25d025b  dumps/modules/TMC0555.txt
+ab6db47478041bb1bd1b50b3114b8949  modules/ML.rom.yaml
+6e7e4045c9e31720dba5fbee0ace248a  modules/ST.rom.yaml
+6ea276ed76b4b67df59141d73708e6ec  modules/RE.rom.yaml
+d87b45b1f0fc6963db7dc3e537eeaf05  modules/SY.rom.yaml
+889d6f5c516afd62f7bd7680cecf47ed  modules/NG.rom.yaml
+84823786f1b065a74ba7b36319c05ba4  modules/AV.rom.yaml
+f67efb0d1b10c46266d9a32891c9aa6c  modules/LE.rom.yaml
+f26fd2f1cbe52ec93387c76fe26122e6  modules/SA.rom.yaml
+4ee8f14c5ce0f088cff3ea3f0c149f76  modules/BD.rom.yaml
+81403a7ed013e53c0334a156a7ca8c0e  modules/MU.rom.yaml
+63fdc4324deb68025c9e98af817a91fc  modules/EE.rom.yaml
+ea082fed55d93610d95f16cf2577f1e1  modules/SE.rom.yaml
+4903315a721f4ff41e60b40abbaeb284  modules/AG.rom.yaml
+d62d3ea22600d0df8f24a6355ee0ea95  modules/RP.rom.yaml
 ```
 
 ## Users
 
 [Calc-U-59](https://github.com/tinue/Calc-U-59), an emulator of the TI-58,
-TI-59 and TI-58C, downloads these files when it is built.
+TI-59 and TI-58C, downloads the calculator dumps and the module files when it
+is built.
